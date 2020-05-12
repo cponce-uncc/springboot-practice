@@ -1,9 +1,22 @@
 package com.example.gradleProject;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Fruit {
+
     private String color;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+
     private String name;
+
+    public Fruit(){
+    }
 
     public Fruit(String color, int id, String name) {
         this.color = color;

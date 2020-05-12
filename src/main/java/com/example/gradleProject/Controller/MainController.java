@@ -1,12 +1,18 @@
 package com.example.gradleProject.Controller;
 import com.example.gradleProject.Fruit;
+import com.example.gradleProject.Repository.FruitRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class MainController {
+
+    @Autowired
+    FruitRepository fruitRepository;
 
     Fruit myApple = new Fruit("red", 23, "apple");
     Fruit myPapaya = new Fruit("yellow", 24, "papaya");
@@ -29,12 +35,12 @@ public class MainController {
         return myApple;
     }
 
-    // Returning a list of objects
+    // Returning a list of objects (JSON format)
     @GetMapping("/all-fruit")
-    public ArrayList<Fruit> getFruitArrayList() {
-        myFruitList.add(myApple);
-        myFruitList.add(myPapaya);
-        return myFruitList;
+    public List<Fruit> getFruitArrayList() {
+        fruitRepository.save(myApple);
+        fruitRepository.save(myPapaya);
+        return fruitRepository.findAll();
     }
 
 }
