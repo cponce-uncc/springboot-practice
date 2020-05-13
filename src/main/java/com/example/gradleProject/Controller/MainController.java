@@ -14,8 +14,8 @@ public class MainController {
     @Autowired
     FruitRepository fruitRepository;
 
-    Fruit myApple = new Fruit("red", 23, "apple");
-    Fruit myPapaya = new Fruit("yellow", 24, "papaya");
+    Fruit myApple = new Fruit("red", "apple");
+    Fruit myPapaya = new Fruit("yellow", "papaya");
     ArrayList<Fruit> myFruitList = new ArrayList<>();
 
     @GetMapping("/hello")  // Pointed to "/hello" (/) is home

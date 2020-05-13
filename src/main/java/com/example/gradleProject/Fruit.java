@@ -11,16 +11,15 @@ public class Fruit {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
 
     private String name;
 
     public Fruit(){
     }
 
-    public Fruit(String color, int id, String name) {
+    public Fruit(String color, String name) {
         this.color = color;
-        this.id = id;
         this.name = name;
     }
 
@@ -32,11 +31,11 @@ public class Fruit {
         this.color = color;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
